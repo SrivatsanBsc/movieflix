@@ -2,7 +2,7 @@
 
 MovieFlix is a movie streaming web application developed using React and Vite.
 
- ##Features
+ ## Features
 
 - Browse movies
 - Search movies by title
@@ -12,7 +12,7 @@ MovieFlix is a movie streaming web application developed using React and Vite.
 - Remove movies from My List
 - Responsive movie card interface
 
- ##Technologies Used
+## Technologies Used
 
 - HTML
 - CSS
@@ -20,14 +20,14 @@ MovieFlix is a movie streaming web application developed using React and Vite.
 - React.js
 - Vite
 
- ##Project Details
+ ## Project Details
 
 Project Name: MovieFlix  
 Student Name: Srivatsan Sairam  
 Course: B.Sc. (Hons.) Computer Science  
 University: RV University, Bengaluru
 
- ##How to Run
+ ## How to Run
 
 1. Install dependencies:
    `npm install`
@@ -37,6 +37,6 @@ University: RV University, Bengaluru
 
 3. Open the local URL displayed in the terminal.
 
- ##Author
+ ## Author
 
 Srivatsan Sairam
