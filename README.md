@@ -1,16 +1,42 @@
-# React + Vite
+ #MovieFlix 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MovieFlix is a movie streaming web application developed using React and Vite.
 
-Currently, two official plugins are available:
+ ##Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Browse movies
+- Search movies by title
+- Filter movies by category
+- View movie ratings and release year
+- Add movies to My List
+- Remove movies from My List
+- Responsive movie card interface
 
-## React Compiler
+ ##Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- HTML
+- CSS
+- JavaScript
+- React.js
+- Vite
 
-## Expanding the ESLint configuration
+ ##Project Details
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Project Name: MovieFlix  
+Student Name: Srivatsan Sairam  
+Course: B.Sc. (Hons.) Computer Science  
+University: RV University, Bengaluru
+
+ ##How to Run
+
+1. Install dependencies:
+   `npm install`
+
+2. Start the application:
+   `npm run dev`
+
+3. Open the local URL displayed in the terminal.
+
+ ##Author
+
+Srivatsan Sairam
