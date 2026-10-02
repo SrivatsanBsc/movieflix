@@ -1,4 +1,4 @@
- #MovieFlix 
+ # MovieFlix 🎬
 
 MovieFlix is a movie streaming web application developed using React and Vite.
 
