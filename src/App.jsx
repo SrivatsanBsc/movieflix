@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "./App.css";
 
+import Navbar from "./components/pages/Navbar.jsx";
+import MovieCard from "./components/pages/MovieCard.jsx";
+import CategoryFilter from "./components/CategoryFilter.jsx";
+import MyList from "./components/MyList.jsx";
 function App() {
   const [myList, setMyList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  // MOVIE DATA
   const movies = [
     {
       id: 1,
@@ -44,24 +49,13 @@ function App() {
     },
   ];
 
-  // CATEGORIES
-  const categories = [
-    "All",
-    "Action",
-    "Sci-Fi",
-    "Thriller",
-    "Romance",
-  ];
-
   // FILTER MOVIES
   const filteredMovies =
     selectedCategory === "All"
       ? movies
-      : movies.filter(
-          (movie) => movie.genre === selectedCategory
-        );
+      : movies.filter((movie) => movie.genre === selectedCategory);
 
-  // ADD MOVIE
+  // ADD MOVIE TO MY LIST
   const addToList = (movie) => {
     const alreadyAdded = myList.some(
       (item) => item.id === movie.id
@@ -72,7 +66,7 @@ function App() {
     }
   };
 
-  // REMOVE MOVIE
+  // REMOVE MOVIE FROM MY LIST
   const removeFromList = (id) => {
     setMyList(
       myList.filter((movie) => movie.id !== id)
@@ -82,153 +76,38 @@ function App() {
   return (
     <div className="app">
 
-      {/* MOVIES */}
+      {/* NAVBAR */}
+      <Navbar />
+
+      {/* MOVIES SECTION */}
       <section className="movies">
 
         <h2>Popular Movies</h2>
 
-        {/* CATEGORY BUTTONS */}
-        <div className="categories">
-
-          {categories.map((category) => (
-
-            <button
-              key={category}
-              className={
-                selectedCategory === category
-                  ? "category-btn active"
-                  : "category-btn"
-              }
-              onClick={() =>
-                setSelectedCategory(category)
-              }
-            >
-              {category}
-            </button>
-
-          ))}
-
-        </div>
-
+        {/* CATEGORY FILTER */}
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
 
         {/* MOVIE CARDS */}
         <div className="movie-grid">
-
           {filteredMovies.map((movie) => (
-
-            <div
-              className="movie-card"
+            <MovieCard
               key={movie.id}
-            >
-
-              <img
-                src={movie.image}
-                alt={movie.title}
-              />
-
-              <div className="movie-details">
-
-                <h3>{movie.title}</h3>
-
-                <p>
-                  {movie.genre} • {movie.year}
-                </p>
-
-                <p className="rating">
-                  ⭐ {movie.rating}
-                </p>
-
-                <button
-                  onClick={() =>
-                    addToList(movie)
-                  }
-                >
-
-                  {myList.some(
-                    (item) =>
-                      item.id === movie.id
-                  )
-                    ? "✓ Added"
-                    : "+ Add to My List"}
-
-                </button>
-
-              </div>
-
-            </div>
-
+              movie={movie}
+              addToList={addToList}
+            />
           ))}
-
         </div>
 
       </section>
 
-
       {/* MY LIST */}
-      <section className="my-list">
-
-        <h2>
-          My List ({myList.length})
-        </h2>
-
-        {myList.length === 0 ? (
-
-          <div className="empty">
-
-            <p>
-              No movies added yet.
-            </p>
-
-          </div>
-
-        ) : (
-
-          <div className="movie-grid">
-
-            {myList.map((movie) => (
-
-              <div
-                className="movie-card"
-                key={movie.id}
-              >
-
-                <img
-                  src={movie.image}
-                  alt={movie.title}
-                />
-
-                <div className="movie-details">
-
-                  <h3>{movie.title}</h3>
-
-                  <p>
-                    {movie.genre} • {movie.year}
-                  </p>
-
-                  <p className="rating">
-                    ⭐ {movie.rating}
-                  </p>
-
-                  <button
-                    className="remove"
-                    onClick={() =>
-                      removeFromList(movie.id)
-                    }
-                  >
-                    Remove
-                  </button>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        )}
-
-      </section>
+      <MyList
+        myList={myList}
+        removeFromList={removeFromList}
+      />
 
     </div>
   );
